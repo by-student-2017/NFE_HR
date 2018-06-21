@@ -1,0 +1,332 @@
+ Running LAPW2 in single processor mode
+  
+  Modus: TOT  
+ no read error
+ RECPR LIST: NOFI
+
+
+
+
+                              --------------------------------------------------
+                                 S T R U C T U R A L   I N F O R M A T I O N
+                              --------------------------------------------------
+
+
+   SUBSTANCE                    = blebleble                                                                       
+
+   LATTICE                      = F   
+   LATTICE CONSTANTS ARE        =    7.6522570   7.6522570   7.6522570
+   NUMBER OF ATOMS IN UNITCELL  =   1
+   MODE OF CALCULATION IS       = RELA
+   TYPE OF COORDINATES IN DSPLIT=      
+ generate new recprlist
+  KXMAX,KYMAX,KZMAX           9           9           9
+          116 PLANE WAVES GENERATED (INCLUDING FORBIDDEN H,K,L)
+
+ nwav1,kn       11111         116
+       KVEC(         1) =     0    0    0    0.0000    1
+       KVEC(         2) =    -1   -1   -1    1.4222    8
+       KVEC(         3) =     0    0   -2    1.6422    6
+       KVEC(         4) =     0   -2   -2    2.3224   12
+       KVEC(         5) =    -1   -1   -3    2.7232   24
+       KVEC(         6) =    -2   -2   -2    2.8443    8
+       KVEC(         7) =     0    0   -4    3.2844    6
+       KVEC(         8) =    -1   -3   -3    3.5790   24
+       KVEC(         9) =     0   -2   -4    3.6720   24
+       KVEC(        10) =    -2   -2   -4    4.0225   24
+       KVEC(        11) =    -3   -3   -3    4.2665    8
+       KVEC(        12) =    -1   -1   -5    4.2665   24
+       KVEC(        13) =     0   -4   -4    4.6448   12
+       KVEC(        14) =    -1   -3   -5    4.8576   48
+       KVEC(        15) =    -2   -4   -4    4.9265   24
+       KVEC(        16) =     0    0   -6    4.9265    6
+       KVEC(        17) =     0   -2   -6    5.1930   24
+       KVEC(        18) =    -3   -3   -5    5.3842   24
+       KVEC(        19) =    -2   -2   -6    5.4465   24
+       KVEC(        20) =    -4   -4   -4    5.6887    8
+       KVEC(        21) =    -1   -5   -5    5.8637   24
+       KVEC(        22) =    -1   -1   -7    5.8637   24
+       KVEC(        23) =     0   -4   -6    5.9210   24
+       KVEC(        24) =    -2   -4   -6    6.1445   48
+       KVEC(        25) =    -3   -5   -5    6.3069   24
+       KVEC(        26) =    -1   -3   -7    6.3069   48
+       KVEC(        27) =     0    0   -8    6.5687    6
+       KVEC(        28) =    -3   -3   -7    6.7209   24
+       KVEC(        29) =    -4   -4   -6    6.7709   24
+       KVEC(        30) =     0   -2   -8    6.7709   24
+       KVEC(        31) =     0   -6   -6    6.9672   12
+       KVEC(        32) =    -2   -2   -8    6.9672   24
+       KVEC(        33) =    -1   -5   -7    7.1108   48
+       KVEC(        34) =    -5   -5   -5    7.1108    8
+       KVEC(        35) =    -2   -6   -6    7.1581   24
+       KVEC(        36) =     0   -4   -8    7.3440   24
+       KVEC(        37) =    -3   -5   -7    7.4805   48
+       KVEC(        38) =    -1   -1   -9    7.4805   24
+       KVEC(        39) =    -2   -4   -8    7.5254   48
+       KVEC(        40) =    -4   -6   -6    7.7025   24
+       KVEC(        41) =    -1   -3   -9    7.8327   48
+       KVEC(        42) =    -4   -4   -8    8.0450   24
+       KVEC(        43) =    -1   -7   -7    8.1697   24
+       KVEC(        44) =    -5   -5   -7    8.1697   24
+       KVEC(        45) =    -3   -3   -9    8.1697   24
+       KVEC(        46) =     0   -6   -8    8.2109   24
+       KVEC(        47) =     0    0  -10    8.2109    6
+       KVEC(        48) =    -2   -6   -8    8.3735   48
+       KVEC(        49) =     0   -2  -10    8.3735   24
+       KVEC(        50) =    -3   -7   -7    8.4934   24
+       KVEC(        51) =    -1   -5   -9    8.4934   48
+       KVEC(        52) =    -6   -6   -6    8.5330    8
+       KVEC(        53) =    -2   -2  -10    8.5330   24
+       KVEC(        54) =    -3   -5   -9    8.8052   48
+       KVEC(        55) =    -4   -6   -8    8.8434   48
+       KVEC(        56) =     0   -4  -10    8.8434   24
+       KVEC(        57) =    -2   -4  -10    8.9946   48
+       KVEC(        58) =    -5   -7   -7    9.1063   24
+       KVEC(        59) =    -1   -1  -11    9.1063   24
+       KVEC(        60) =     0   -8   -8    9.2896   12
+       KVEC(        61) =    -1   -7   -9    9.3978   48
+       KVEC(        62) =    -5   -5   -9    9.3978   24
+       KVEC(        63) =    -1   -3  -11    9.3978   48
+       KVEC(        64) =    -2   -8   -8    9.4336   24
+       KVEC(        65) =    -4   -4  -10    9.4336   24
+       KVEC(        66) =     0   -6  -10    9.5755   24
+       KVEC(        67) =    -6   -6   -8    9.5755   24
+       KVEC(        68) =    -3   -7   -9    9.6805   48
+       KVEC(        69) =    -3   -3  -11    9.6805   24
+       KVEC(        70) =    -2   -6  -10    9.7153   48
+       KVEC(        71) =    -4   -8   -8    9.8531   24
+       KVEC(        72) =     0    0  -12    9.8531    6
+       KVEC(        73) =    -1   -5  -11    9.9552   48
+       KVEC(        74) =    -7   -7   -7    9.9552    8
+       KVEC(        75) =     0   -2  -12    9.9890   24
+       KVEC(        76) =    -4   -6  -10   10.1231   48
+       KVEC(        77) =    -2   -2  -12   10.1231   24
+       KVEC(        78) =    -5   -7   -9   10.2225   48
+       KVEC(        79) =    -3   -5  -11   10.2225   48
+       KVEC(        80) =     0   -4  -12   10.3860   24
+       KVEC(        81) =    -1   -9   -9   10.4830   24
+       KVEC(        82) =     0   -8  -10   10.5151   24
+       KVEC(        83) =    -6   -8   -8   10.5151   24
+       KVEC(        84) =    -2   -4  -12   10.5151   48
+       KVEC(        85) =    -2   -8  -10   10.6425   48
+       KVEC(        86) =    -3   -9   -9   10.7371   24
+       KVEC(        87) =    -1   -7  -11   10.7371   48
+       KVEC(        88) =    -5   -5  -11   10.7371   24
+       KVEC(        89) =    -1   -1  -13   10.7371   24
+       KVEC(        90) =    -6   -6  -10   10.7685   24
+       KVEC(        91) =    -4   -4  -12   10.8930   24
+       KVEC(        92) =    -3   -7  -11   10.9854   48
+       KVEC(        93) =    -7   -7   -9   10.9854   24
+       KVEC(        94) =    -1   -3  -13   10.9854   48
+       KVEC(        95) =    -4   -8  -10   11.0161   48
+       KVEC(        96) =     0   -6  -12   11.0161   24
+       KVEC(        97) =    -2   -6  -12   11.1378   48
+       KVEC(        98) =    -5   -9   -9   11.2282   24
+       KVEC(        99) =    -3   -3  -13   11.2282   24
+       KVEC(       100) =    -8   -8   -8   11.3773    8
+       KVEC(       101) =    -5   -7  -11   11.4659   48
+       KVEC(       102) =    -1   -5  -13   11.4659   48
+       KVEC(       103) =    -4   -6  -12   11.4952   48
+       KVEC(       104) =     0    0  -14   11.4952    6
+       KVEC(       105) =    -6   -8  -10   11.6120   48
+       KVEC(       106) =     0   -2  -14   11.6120   24
+       KVEC(       107) =    10    0  -10   11.6120   12
+       KVEC(       108) =    -3   -5  -13   11.6987   48
+       KVEC(       109) =     9   -1  -11   11.6987   48
+       KVEC(       110) =    -2   -2  -14   11.7275   24
+       KVEC(       111) =    10   -2  -10   11.7275   24
+       KVEC(       112) =     8    0  -12   11.8419   24
+       KVEC(       113) =    -7   -9   -9   11.9270   24
+       KVEC(       114) =     9   -3  -11   11.9270   48
+       KVEC(       115) =     0   -4  -14   11.9552   24
+       KVEC(       116) =     8   -2  -12   11.9552   48
+        SIZE INCLUDING STAR MEMBERS =       3287
+  time in recpr:   0.000000000000000E+000
+ BZ-integration with TETRA-program.   icor=: 1
+ Equal occupancy of degenerate states, tol=: 0.1E-05
+ call eord...
+ call dos...
+ ILOOP            1
+   FERMI ENERGY AT   0.498776517199459     
+   SUM RULE OF TETRAHEDRON INTEGRATION CHECKED 
+ call eweigh...
+   number of occupied bands:           5
+   highest energy:  0.747390076770848     
+ 
+ Bandranges (emin - emax) and occupancy:
+band       1   -4.2819100898   -4.2803128038      0.200000D+01
+band       2   -4.2813676186   -4.2803128038      0.200000D+01
+band       3   -4.2809640411   -4.2803128038      0.200000D+01
+band       4   -0.3204205065    0.3780942352      0.200000D+01
+band       5    0.1732100835    1.4280115197      0.999999D+00
+band       6    0.5001693516    1.4280115197      0.000000D+00
+band       7    0.6172870075    1.4808125875      0.000000D+00
+band       8    0.9038925303    1.5809441134      0.000000D+00
+band       9    1.1585885628    1.8965070081      0.000000D+00
+band      10    1.5309523544    2.4225734749      0.000000D+00
+band      11    1.6226615588    2.4547221710      0.000000D+00
+band      12    1.7736887338    2.4794594045      0.000000D+00
+band      13    1.8913192312    2.4621005250      0.000000D+00
+band      14    2.0703028871    2.4992651172      0.000000D+00
+band      15    2.3128121756    2.4482263374      0.000000D+00
+band      16    2.3128121756    2.4678236647      0.000000D+00
+band      17    2.3128121756    2.4678236647      0.000000D+00
+ 
+ eseper below EF  0.500000000000000     
+ eseper minimum gap  5.000000000000000E-002
+ Energy to separate semicore and valence states: -0.370420506461254     
+
+
+:NOE  : NUMBER OF ELECTRONS          =   9.000
+
+:FER  : F E R M I - ENERGY(TETRAH.M.)=   0.4987765172
+ wmist   8.99999934002550     
+     FORCE-CALCULATION: F
+
+          --------------------------------------------------------------------
+           W A V E F U N C T I O N S   AND   C H A R G E S   IN   S P H E R E S
+          --------------------------------------------------------------------
+
+
+
+
+:POS001: AT.NR.   1 POSITION = 0.00000 0.00000 0.00000  MULTIPLICITY =  1
+
+
+   NOT EQUIV ATOM Al          LOCAL ROTATION MATRIX
+                                 1.00000   0.00000   0.00000
+                                 0.00000   1.00000   0.00000
+                                 0.00000   0.00000   1.00000
+             EQUIV ATOM   1   POSITION:    0.000   0.000   0.000
+                                 1.00000   0.00000   0.00000        0.00000
+                                 0.00000  -1.00000   0.00000        0.00000
+                                 0.00000   0.00000  -1.00000        0.00000
+
+          ATOMIC PARAMETERS FOR Al        
+
+           ENERGY PARAMETERS ARE   0.30   0.30   0.30   0.30   0.30   0.30   0.30
+           ENERGY PARAMETERS ARE   0.30   0.30
+
+           L     U(R)          U'(R)         DU/DE        DU'/DE      NORM-U'
+           0  0.336299E+00 -0.251967E+00 -0.185761E+00 -0.336595E+00  0.610107E-01      2 2 2
+           0  0.336299E+00 -0.251967E+00 -0.185761E+00 -0.336595E+00  0.610107E-01      2 2 2
+           1 -0.453870E+00  0.486486E-01  0.138239E+00  0.337719E+00  0.337841E-01      1 1 1
+           1 -0.453870E+00  0.486486E-01  0.138239E+00  0.337719E+00  0.337841E-01      1 1 1
+           2  0.563682E+00  0.235654E+00 -0.105050E+00 -0.327771E+00  0.199830E-01      0 0 0
+           2  0.563682E+00  0.235654E+00 -0.105050E+00 -0.327771E+00  0.199830E-01      0 0 0
+           3  0.706624E+00  0.684532E+00 -0.582103E-01 -0.282819E+00  0.454389E-02      0 0 0
+           3  0.706624E+00  0.684532E+00 -0.582103E-01 -0.282819E+00  0.454389E-02      0 0 0
+           4  0.804858E+00  0.115006E+01 -0.411365E-01 -0.257569E+00  0.188366E-02      0 0 0
+           4  0.804858E+00  0.115006E+01 -0.411365E-01 -0.257569E+00  0.188366E-02      0 0 0
+           5  0.887294E+00  0.165327E+01 -0.315767E-01 -0.239152E+00  0.959525E-03      0 0 0
+           5  0.887294E+00  0.165327E+01 -0.315767E-01 -0.239152E+00  0.959525E-03      0 0 0
+           6  0.960607E+00  0.219581E+01 -0.253853E-01 -0.224577E+00  0.548497E-03      0 0 0
+           6  0.960607E+00  0.219581E+01 -0.253853E-01 -0.224577E+00  0.548497E-03      0 0 0
+           7  0.102764E+01  0.277658E+01 -0.210471E-01 -0.212548E+00  0.338702E-03      0 0 0
+           7  0.102764E+01  0.277658E+01 -0.210471E-01 -0.212548E+00  0.338702E-03      0 0 0
+           8  0.108993E+01  0.339397E+01 -0.178474E-01 -0.202353E+00  0.221332E-03      0 0 0
+           8  0.108993E+01  0.339397E+01 -0.178474E-01 -0.202353E+00  0.221332E-03      0 0 0
+LO COEFFICIENT: l,A,B,C   0          0.91289     1.65267     0.00000
+           1  0.158863E-01 -0.265817E-01                                                0 0 0
+LO COEFFICIENT: l,A,B,C   1          0.85618     2.81103     0.00000
+LO COEFFICIENT: l,A,B,C   1          0.03496     0.00000     0.99885
+  atom           1  ncomu           0  lmmax           5
+
+       LMMAX  5
+       LM=   0 0  4 0  4 4  6 0  6 4
+0 TOTAL CHARGE INSIDE SPHERE    1:    7.804627
+:PCS001: PARTIAL CHARGES SPHERE =  1 S,P,D,F,      D-EG,D-T2G 
+:QTL001: 0.8008 6.8226 0.1693 0.0110 0.0000 0.0000 0.0000 0.0501 0.1192 0.0000 0.0000 0.0000
+        Q-s-low E-s-low   Q-p-low E-p-low   Q-d-low E-d-low   Q-f-low E-f-low
+:EPL001:  0.0000 10.0000    5.9984 -4.2810    0.0000 10.0000    0.0000 10.0000
+        Q-s-hi  E-s-hi    Q-p-hi  E-p-hi    Q-d-hi  E-d-hi    Q-f-hi  E-f-hi 
+:EPH001:  0.8008  0.0754    0.8242  0.2333    0.1692  0.3142    0.0110  0.3223
+ 
+   atpar              (cpu,wall):     0.0     0.0
+   readvec            (cpu,wall):     0.0     0.0
+   readvec, read only (cpu,wall):     0.0     0.0
+   blocked loop            (cpu):     0.0     0.0
+   reduced                 (cpu):     0.0     0.0
+   ilm-tot loop            (cpu):     0.2     0.1
+   ilm-1 loop              (cpu):     0.1
+   ilm-2 loop              (cpu):     0.1
+   ilm-3 loop              (cpu):     0.1
+   write-clm          (cpu,wall):     0.0     0.0
+   write-scf          (cpu,wall):     0.0     0.0
+   write-efg          (cpu,wakk):     0.0     0.0
+   write              (cpu,wall):     0.0     0.0
+
+:CHA  : TOTAL VALENCE CHARGE INSIDE UNIT CELL =       8.999999
+
+
+   SUM OF EIGENVALUES:
+                             -25.173268
+
+ max k indices:           3           3           3
+ n,iff1,iff2,iff3          51          18          18          18
+     FORCE-CALCULATION: F
+ proc            0  fft for states            1           4
+ proc            0  fft for states            1           4
+ proc            0  fft for states            1           4
+ proc            0  fft for states            1           5
+ proc            0  fft for states            1           5
+ proc            0  fft for states            1           5
+ proc            0  fft for states            1           4
+ proc            0  fft for states            1           4
+ proc            0  fft for states            1           5
+ proc            0  fft for states            1           5
+ proc            0  fft for states            1           5
+ proc            0  fft for states            1           5
+ proc            0  fft for states            1           5
+ proc            0  fft for states            1           4
+ proc            0  fft for states            1           4
+ proc            0  fft for states            1           4
+ proc            0  fft for states            1           4
+ proc            0  fft for states            1           5
+ proc            0  fft for states            1           5
+ proc            0  fft for states            1           5
+ proc            0  fft for states            1           5
+ proc            0  fft for states            1           4
+ proc            0  fft for states            1           4
+ proc            0  fft for states            1           5
+ proc            0  fft for states            1           5
+ proc            0  fft for states            1           5
+ proc            0  fft for states            1           5
+ proc            0  fft for states            1           5
+ proc            0  fft for states            1           5
+ proc            0  fft for states            1           5
+ proc            0  fft for states            1           5
+ proc            0  fft for states            1           4
+ proc            0  fft for states            1           5
+ proc            0  fft for states            1           5
+ proc            0  fft for states            1           5
+ proc            0  fft for states            1           4
+ proc            0  fft for states            1           5
+ proc            0  fft for states            1           5
+ proc            0  fft for states            1           5
+ proc            0  fft for states            1           5
+ proc            0  fft for states            1           5
+ proc            0  fft for states            1           5
+ proc            0  fft for states            1           5
+ proc            0  fft for states            1           5
+ proc            0  fft for states            1           5
+ proc            0  fft for states            1           5
+ proc            0  fft for states            1           5
+       116 FOURIER COEFFICIENTS CALCULATED
+ LARGEST COMPONENTS:     4     4     4
+
+
+   =====>>> CPU TIME SUMMARY
+
+            TOTAL       :      0.5     ... 100. PERCENT
+            PART FERMI  :      0.0     ...   2. PERCENT
+            PART CLM    :      0.3     ...  59. PERCENT
+            PART FOURIR :      0.2     ...  39. PERCENT
+
+
+   =====>>> WALL TIME SUMMARY
+
+            TOTAL       :      0.1     ... 100. PERCENT
+            PART FERMI  :      0.0     ...   7. PERCENT
+            PART CLM    :      0.1     ...  60. PERCENT
+            PART FOURIR :      0.0     ...  33. PERCENT

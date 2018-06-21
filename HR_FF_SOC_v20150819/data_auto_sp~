@@ -1,0 +1,123 @@
+#! /bin/csh -f
+
+  set file    = `pwd`
+  set file    = $file:t
+#  echo $file
+
+  if !( -d SCF_DATA ) then
+    mkdir SCF_DATA
+  endif
+  set filename = $file'_scf_date'
+  echo '---------------------------------------------' >> ./SCF_DATA/$filename.txt
+  echo '    put scf data' >> ./SCF_DATA/$filename.txt
+  date >> ./SCF_DATA/$filename.txt
+  echo '---------------------------------------------' >> ./SCF_DATA/$filename.txt
+  echo '  '
+  echo 'put scf data in' $file '/SCF_DATA/ directroy'
+  set refilename = $file'_rescf'
+  set refilename = 'wien'
+  cp $file.clmdn ./SCF_DATA/wien.clmdn
+  cp $file.clmsum ./SCF_DATA/wien.clmsum
+  cp $file.clmup ./SCF_DATA/wien.clmup
+  cp $file.dmatdn ./SCF_DATA/wien.dmatdn
+  cp $file.dmatud ./SCF_DATA/wien.dmatud
+  cp $file.dmatup ./SCF_DATA/wien.dmatup
+  cp $file.in0 ./SCF_DATA/wien.in0
+  cp $file.in1 ./SCF_DATA/wien.in1
+  cp $file.in2 ./SCF_DATA/wien.in2
+  cp $file.in1c ./SCF_DATA/wien.in1c
+  cp $file.in2c ./SCF_DATA/wien.in2c
+  cp $file.inc ./SCF_DATA/wien.inc
+  cp $file.indm ./SCF_DATA/wien.indm
+  cp $file.indmc ./SCF_DATA/wien.indmc
+  cp $file.inm ./SCF_DATA/wien.inm
+  cp $file.inorb ./SCF_DATA/wien.inorb
+  cp $file.inso ./SCF_DATA/wien.inso
+  cp $file.inst ./SCF_DATA/wien.inst
+  cp $file.kgen ./SCF_DATA/wien.kgen
+  cp $file.klist ./SCF_DATA/wien.klist
+  cp $file.struct ./SCF_DATA/wien.struct
+  cp $file.vorbdn ./SCF_DATA/wien.vorbdn
+  cp $file.vorbup ./SCF_DATA/wien.vorbup
+  cp $file.vsp ./SCF_DATA/wien.vsp
+  cp $file.vspdn ./SCF_DATA/wien.vspdn
+  cp $file.vspup ./SCF_DATA/wien.vspup
+  echo '  '
+
+
+  if !( -d HR_DATA ) then
+    mkdir HR_DATA
+  endif
+  set filename = $file'_HR_date'
+  echo '---------------------------------------------' >> ./HR_DATA/$filename.txt
+  echo '    put hr data' >> ./HR_DATA/$filename.txt
+  date >> ./HR_DATA/$filename.txt
+  echo '---------------------------------------------' >> ./HR_DATA/$filename.txt
+  echo '  '
+  echo 'put HR input data in' $file '/HR_DATA/ directroy'
+  set filename = $file'_HR'
+  cp $file.klist ./HR_DATA/wien_HR.klist
+  cp $file.struct ./HR_DATA/wien_HR.struct
+  cp $file.output0 ./HR_DATA/wien_HR.output0
+  cp $file.output1 ./HR_DATA/wien_HR.output1
+  cp $file.output2 ./HR_DATA/wien_HR.output2
+  cp $file.outputs ./HR_DATA/wien_HR.outputs
+  cp $file.outputt ./HR_DATA/wien_HR.outputt
+  cp $file.outputkgen ./HR_DATA/wien_HR.outputkgen
+  cp $file.dos1 ./HR_DATA/wien_HR.dos1
+  cp $HOME/HR_FF/NFE_HR/wien.ff_scale_factor ./HR_DATA/wien.ff_scale_factor
+  cp $HOME/HR_FF/NFE_HR/LMAX ./HR_DATA/LMAX
+  cp $HOME/HR_FF/NFE_HR/calcff_start_end_eV ./HR_DATA/calcff_start_end_eV
+  echo '  '
+
+  if !( -d HR_DATA_up ) then
+    mkdir HR_DATA_up
+  endif
+  set filename = $file'_HR_date_up'
+  echo '---------------------------------------------' >> ./HR_DATA_up/$filename.txt
+  echo '    put hr data' >> ./HR_DATA_up/$filename.txt
+  date >> ./HR_DATA_up/$filename.txt
+  echo '---------------------------------------------' >> ./HR_DATA_up/$filename.txt
+  echo '  '
+  echo 'put HR input data up in' $file '/HR_DATA_up/ directroy'
+  set filename = $file'_HR_up'
+  cp $file.klist ./HR_DATA_up/wien_HR.klist
+  cp $file.struct ./HR_DATA_up/wien_HR.struct
+  cp $file.output0 ./HR_DATA_up/wien_HR.output0
+  cp $file.output1up ./HR_DATA_up/wien_HR.output1
+  cp $file.output2up ./HR_DATA_up/wien_HR.output2
+  cp $file.outputs ./HR_DATA/wien_HR.outputs
+  cp $file.outputt ./HR_DATA/wien_HR.outputt
+  cp $file.outputkgen ./HR_DATA_up/wien_HR.outputkgen
+  cp $file.dos1up ./HR_DATA_up/wien_HR.dos1up
+  cp $HOME/HR_FF/NFE_HR/wien.ff_scale_factor ./HR_DATA/wien.ff_scale_factor
+  cp $HOME/HR_FF/NFE_HR/LMAX ./HR_DATA/LMAX
+  cp $HOME/HR_FF/NFE_HR/calcff_start_end_eV ./HR_DATA/calcff_start_end_eV
+  echo '  '
+
+  if !( -d HR_DATA_dn ) then
+    mkdir HR_DATA_dn
+  endif
+  set filename = $file'_HR_date_dn'
+  echo '---------------------------------------------' >> ./HR_DATA_dn/$filename.txt
+  echo '    put hr data' >> ./HR_DATA_dn/$filename.txt
+  date >> ./HR_DATA_dn/$filename.txt
+  echo '---------------------------------------------' >> ./HR_DATA_dn/$filename.txt
+  echo '  '
+  echo 'put HR input data dn in' $file '/HR_DATA_dn/ directroy'
+  set filename = $file'_HR_dn'
+  cp $file.klist ./HR_DATA_dn/wien_HR.klist
+  cp $file.struct ./HR_DATA_dn/wien_HR.struct
+  cp $file.output0 ./HR_DATA_up/wien_HR.output0
+  cp $file.output1dn ./HR_DATA_dn/wien_HR.output1
+  cp $file.output2dn ./HR_DATA_dn/wien_HR.output2
+  cp $file.outputs ./HR_DATA/wien_HR.outputs
+  cp $file.outputt ./HR_DATA/wien_HR.outputt
+  cp $file.outputkgen ./HR_DATA_dn/wien_HR.outputkgen
+  cp $file.dos1dn ./HR_DATA_dn/wien_HR.dos1dn
+  cp $HOME/HR_FF/NFE_HR/calchrso ./HR_DATA/calchrso
+  cp $HOME/HR_FF/NFE_HR/wien.ff_scale_factor ./HR_DATA/wien.ff_scale_factor
+  cp $HOME/HR_FF/NFE_HR/LMAX ./HR_DATA/LMAX
+  cp $HOME/HR_FF/NFE_HR/calcff_start_end_eV ./HR_DATA/calcff_start_end_eV
+  echo '  '
+#

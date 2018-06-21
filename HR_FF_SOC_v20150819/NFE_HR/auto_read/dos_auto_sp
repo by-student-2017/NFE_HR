@@ -1,0 +1,62 @@
+#! /bin/csh -f
+
+  set file    = `pwd`
+  set file    = $file:t
+#  echo $file
+
+  if !( -d DOS_DATA ) then
+    mkdir DOS_DATA
+  endif
+  set filename = $file'_DOS_date'
+  echo '---------------------------------------------' >> ./DOS_DATA/$filename.txt
+  echo '    put dos data' >> ./DOS_DATA/$filename.txt
+  date >> ./DOS_DATA/$filename.txt
+  echo '---------------------------------------------' >> ./DOS_DATA/$filename.txt
+  echo '  '
+  echo 'put dos input data in' $file '/DOS_DATA/ directroy'
+  set filename = $file'_DOS'
+#  cp $file.dos1 ./DOS_DATA/$filename.dos1
+#  cp $file.dos1ev ./DOS_DATA/$filename.dos1ev
+  cp $file.outputt ./DOS_DATA/$filename.outputt
+  cp $file.int ./DOS_DATA/$filename.int
+  cp $file.struct ./DOS_DATA/$filename.struct
+  cp $file.dos1up ./DOS_DATA/$filename.dos1up
+  cp $file.dos1evup ./DOS_DATA/$filename.dos1evup
+  cp $file.outputtup ./DOS_DATA/$filename.outputtup
+  cp $file.dos1dn ./DOS_DATA/$filename.dos1dn
+  cp $file.dos1evdn ./DOS_DATA/$filename.dos1evdn
+  cp $file.outputtdn ./DOS_DATA/$filename.outputtdn
+  if ( -e $file.dos2up ) then
+ #   cp $file.dos2 ./DOS_DATA/$filename.dos2
+ #   cp $file.dos2ev ./DOS_DATA/$filename.dos2ev
+    cp $file.dos2up ./DOS_DATA/$filename.dos2up
+    cp $file.dos2evup ./DOS_DATA/$filename.dos2evup
+    cp $file.dos2dn ./DOS_DATA/$filename.dos2dn
+    cp $file.dos2evdn ./DOS_DATA/$filename.dos2evdn
+  endif
+  if ( -e $file.dos3up ) then
+#    cp $file.dos3 ./DOS_DATA/$filename.dos3
+#    cp $file.dos3ev ./DOS_DATA/$filename.dos3ev
+    cp $file.dos3up ./DOS_DATA/$filename.dos3up
+    cp $file.dos3evup ./DOS_DATA/$filename.dos3evup
+    cp $file.dos3dn ./DOS_DATA/$filename.dos3dn
+    cp $file.dos3evdn ./DOS_DATA/$filename.dos3evdn
+  endif
+  if ( -e $file.dos4up ) then
+#    cp $file.dos4 ./DOS_DATA/$filename.dos4
+#    cp $file.dos4ev ./DOS_DATA/$filename.dos4ev
+    cp $file.dos4up ./DOS_DATA/$filename.dos4up
+    cp $file.dos4evup ./DOS_DATA/$filename.dos4evup
+    cp $file.dos4dn ./DOS_DATA/$filename.dos4dn
+    cp $file.dos4evdn ./DOS_DATA/$filename.dos4evdn
+  endif
+  if ( -e $file.dos5up ) then
+#    cp $file.dos5 ./DOS_DATA/$filename.dos5
+#    cp $file.dos5ev ./DOS_DATA/$filename.dos5ev
+    cp $file.dos5up ./DOS_DATA/$filename.dos5up
+    cp $file.dos5evup ./DOS_DATA/$filename.dos5evup
+    cp $file.dos5dn ./DOS_DATA/$filename.dos5dn
+    cp $file.dos5evdn ./DOS_DATA/$filename.dos5evdn
+  endif
+  echo '  '
+#
