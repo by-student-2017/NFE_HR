@@ -1,0 +1,35 @@
+#! /bin/csh -f
+
+  set file    = `pwd`
+  #set file    = $file:t
+#  echo $file
+
+  if !( -d $file/FF_DATA ) then
+    mkdir $file/FF_DATA
+  endif
+  set filename = $file:t
+  #set filename = $file'_FF_date'
+  echo '---------------------------------------------' >> $file/FF_DATA/$filename'_FF_date'.txt
+  echo '    put ff data' >> $file/FF_DATA/$filename'_FF_date'.txt
+  date >> $file/FF_DATA/$filename'_FF_date'.txt
+  echo '---------------------------------------------' >> $file/FF_DATA/$filename'_FF_date'.txt
+  echo '  '
+  echo 'put FF input data in' $file'/FF_DATA/ directroy'
+  #set filename = $file'_FF'
+  cp $file/$filename.outputt $file/FF_DATA/wien_FF.outputt
+  cp $file/$filename.output1 $file/FF_DATA/wien_FF.output1
+  cp $file/$filename.output2 $file/FF_DATA/wien_FF.output2
+  cp $file/$filename.struct $file/FF_DATA/wien_FF.struct
+  cp $file/$filename.dos1 $file/FF_DATA/wien_FF.dos1
+  cp $file/$filename.klist_band $file/FF_DATA/wien_FF.klist_band
+  cp $file/$filename.outputkgen $file/FF_DATA/wien_FF.outputkgen
+  cp $HOME/NFE_HR/calcff $file/FF_DATA/calcff
+  cp $HOME/NFE_HR/calcff_old $file/FF_DATA/calcff_old
+  cp $HOME/NFE_HR/calcff_start_end_eV $file/FF_DATA/calcff_start_end_eV
+  #cp /home/hrpc5/HR_FF/CALCFF_WIEN2k_v2.00P_Final_F90/calcff $file/FF_DATA/calcff
+  mkdir spaghetti_DATA
+  cp $file/$filename.spaghetti_ps $file/spaghetti_DATA/$filename.spaghetti_ps
+  cp $file/$filename.spaghetti_ene $file/spaghetti_DATA/$filename.spaghetti_ene
+  cp $file/$filename.bands.agr $file/spaghetti_DATA/$filename.bands.agr
+  echo '  '
+#
