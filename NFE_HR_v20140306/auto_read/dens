@@ -1,0 +1,26 @@
+#! /bin/csh -f
+
+date
+set file    = `pwd`
+set filename    = $file:t
+
+mkdir DENS_DATA
+cp $filename.clmsum ./DENS_DATA/DENS_DATA.clmsum
+cp $filename.struct ./DENS_DATA/DENS_DATA.struct
+#cp *.clmsum ./DENS_DATA/DENS_DATA.clmsum
+#cp *.struct ./DENS_DATA/DENS_DATA.struct
+cd ./DENS_DATA
+
+set Adress=/home/hrpc7/NFE_HR/auto_read/density_plot
+#python $Adress/wien2venus.py 50 50 50
+python $Adress/wien2venus.py $1 $2 $3 $4
+mv DENS_DATA.rho3d DENS_DATA.rho
+
+#mv DENS_DATA.clmsum $filename.clmsum
+#mv DENS_DATA.struct $filename.struct
+#mv DENS_DATA.rho $filename.rho
+
+set Vesta_Adress=/home/hrpc7/VESTA-x86_64
+#$Vesta_Adress/VESTA $file/DENS_DATA/$filename.rho
+$Vesta_Adress/VESTA $file/DENS_DATA/DENS_DATA.rho
+date

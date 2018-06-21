@@ -1,0 +1,56 @@
+#! /bin/sh
+#-----------------------------------------------------
+Adress=/home/hrpc7/NFE_HR
+#-----------------------------------------------------
+echo 'FF CALCULATION START'
+date
+echo '    '
+#-----------------------------------------------------
+if [ ! -e f26 -a -e *.output1 ]; then
+  mv *.output1 f26
+  echo 'make input file f26 (.output1)'
+fi
+if [ ! -e f03 ]; then
+  cp *.klist_band f03
+  echo 'make input file f03 (.klist_band )'
+fi
+if [ ! -e f10 -a -e *.output2 ]; then
+  cp *.output2 f10
+  echo 'make input file f10 (.output2)'
+fi
+if [ ! -e f20 ]; then
+  cp $HOME/NFE_HR/*.input f20
+  echo 'make input file f20 (.input)'
+fi
+if [ ! -e f60 ]; then
+  cp *.struct f60
+  echo 'make input file f60 (.struct)'
+fi
+#-----------------------------------------------------
+$HOME/NFE_HR/ecalcff
+echo '    '
+echo 'FF_calculation_results'
+echo 'in FF_calculation_results_folder'
+#-----------------------------------------------------
+if [ ! -e FF_calculation_results ]; then
+  mkdir FF_calculation_results
+fi
+#-----------------------------------------------------
+rm f01
+rm f03
+mv calcff_energy_vs_C2*.txt ./FF_calculation_results/
+mv calcff_energy_vs_CG*.txt ./FF_calculation_results/
+rm f10
+rm f20
+mv f26 wien_FF.output1
+#mv f47 ./FF_calculation_results/calcff_energy_vs_K2_bond.txt 
+#mv f48 ./FF_calculation_results/calcff_energy_vs_K2_anti_bond.txt 
+rm f60
+#-----------------------------------------------------
+#rm f80
+#rm f90
+#-----------------------------------------------------
+echo '    '
+echo 'FF CALCULATION END'
+
+date

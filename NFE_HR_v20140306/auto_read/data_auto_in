@@ -1,0 +1,64 @@
+#! /bin/csh -f
+
+  set file    = `pwd`
+  #set file    = $file:t
+  #echo $file
+
+  if !( -d $file/SCF_DATA ) then
+    mkdir $file/SCF_DATA
+  endif
+  set filename = $file:t
+  #set filename = $filename'_scf_date'
+  echo '---------------------------------------------' >> $file/SCF_DATA/$filename'_scf_date'.txt
+  echo '    put scf data' >> $file/SCF_DATA/$filename'_scf_date'.txt
+  date >> $file/SCF_DATA/$filename'_scf_date'.txt
+  echo '---------------------------------------------' >> $file/SCF_DATA/$filename'_scf_date'.txt
+  echo '  '
+  echo 'put scf data in' $file'/SCF_DATA/ directroy'
+  #set refilename = $file'_rescf'
+  #set refilename = 'wien'
+  #set dens_adress= '/home/hrpc5/density_plot'
+  cp $file/$filename.clmsum $file/SCF_DATA/wien.clmsum
+  cp $file/$filename.in0 $file/SCF_DATA/wien.in0
+  cp $file/$filename.in1 $file/SCF_DATA/wien.in1
+  cp $file/$filename.in2 $file/SCF_DATA/wien.in2
+  cp $file/$filename.in1c $file/SCF_DATA/wien.in1c
+  cp $file/$filename.in2c $file/SCF_DATA/wien.in2c
+  cp $file/$filename.inc $file/SCF_DATA/wien.inc
+  cp $file/$filename.inm $file/SCF_DATA/wien.inm
+  cp $file/$filename.inst $file/SCF_DATA/wien.inst
+  cp $file/$filename.kgen $file/SCF_DATA/wien.kgen
+  cp $file/$filename.klist $file/SCF_DATA/wien.klist
+  cp $file/$filename.struct $file/SCF_DATA/wien.struct
+  cp $file/$filename.vsp $file/SCF_DATA/wien.vsp
+  cp /home/hrpc5/density_plot/dens $file/SCF_DATA/dens
+  echo '  '
+
+
+  if !( -d HR_DATA ) then
+    mkdir HR_DATA
+  endif
+  #set filename = $file:t
+  #set filename = $filename'_HR_date'
+  echo '---------------------------------------------' >> $file/HR_DATA/$filename'_HR_date'.txt
+  echo '    put hr data' >> $file/HR_DATA/$filename'_HR_date'.txt
+  date >> $file/HR_DATA/$filename'_HR_date'.txt
+  echo '---------------------------------------------' >> $file/HR_DATA/$filename'_HR_date'.txt
+  echo '  '
+  echo 'put HR input data in' $file'/HR_DATA/ directroy'
+  #set filename = $file'_HR'
+  #set calchr_adress = '/home/hrpc5/NFE_HR'
+  cp $file/$filename.klist $file/HR_DATA/wien_HR.klist
+  cp $file/$filename.struct $file/HR_DATA/wien_HR.struct
+  cp $file/$filename.output0 $file/HR_DATA/wien_HR.output0
+  cp $file/$filename.output1 $file/HR_DATA/wien_HR.output1
+  cp $file/$filename.output2 $file/HR_DATA/wien_HR.output2
+  cp $file/$filename.outputt $file/HR_DATA/wien_HR.outputt
+  cp $file/$filename.outputkgen $file/HR_DATA/wien_HR.outputkgen
+  cp $file/$filename.dos1 $file/HR_DATA/wien_HR.dos1
+  cp $HOME/NFE_HR/calchr $file/HR_DATA/calchr
+  cp $HOME/NFE_HR/wien.ff_scale_factor $file/HR_DATA/wien.ff_scale_factor
+  cp $HOME/NFE_HR/LMAX $file/HR_DATA/LMAX
+  echo '  '
+
+#

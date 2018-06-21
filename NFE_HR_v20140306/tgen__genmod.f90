@@ -1,0 +1,19 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Wed Dec  4 12:10:57 2013
+        MODULE TGEN__genmod
+          INTERFACE 
+            SUBROUTINE TGEN(NPXD,NPYD,NPZD,IC,N1,N2,N3,N4,N5,N6,N7)
+              USE COMMON_NFE
+              INTEGER(KIND=4), INTENT(IN) :: NPZD
+              INTEGER(KIND=4), INTENT(IN) :: NPYD
+              INTEGER(KIND=4), INTENT(IN) :: NPXD
+              INTEGER(KIND=4), INTENT(INOUT) :: IC(NPXD,NPYD,NPZD)
+              INTEGER(KIND=4), INTENT(INOUT) :: N1(NPT)
+              INTEGER(KIND=4), INTENT(INOUT) :: N2(NPT)
+              INTEGER(KIND=4), INTENT(INOUT) :: N3(NPT)
+              INTEGER(KIND=4), INTENT(INOUT) :: N4(NPT)
+              INTEGER(KIND=4), INTENT(INOUT) :: N5(NPT)
+              INTEGER(KIND=4), INTENT(INOUT) :: N6(NPT)
+              INTEGER(KIND=4), INTENT(INOUT) :: N7(NPT)
+            END SUBROUTINE TGEN
+          END INTERFACE 
+        END MODULE TGEN__genmod
