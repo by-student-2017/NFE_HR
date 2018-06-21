@@ -1,0 +1,19 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Wed Mar 12 10:27:54 2014
+        MODULE FDENS__genmod
+          INTERFACE 
+            SUBROUTINE FDENS(NPXD,NPYD,NPZD,IC,NPT,N1,N2,N3,N4,N5,N6,N7)
+              INTEGER(KIND=4), INTENT(IN) :: NPT
+              INTEGER(KIND=4), INTENT(IN) :: NPZD
+              INTEGER(KIND=4), INTENT(IN) :: NPYD
+              INTEGER(KIND=4), INTENT(IN) :: NPXD
+              INTEGER(KIND=4), INTENT(INOUT) :: IC(NPXD,NPYD,NPZD)
+              INTEGER(KIND=4), INTENT(INOUT) :: N1(NPT)
+              INTEGER(KIND=4), INTENT(INOUT) :: N2(NPT)
+              INTEGER(KIND=4), INTENT(INOUT) :: N3(NPT)
+              INTEGER(KIND=4), INTENT(INOUT) :: N4(NPT)
+              INTEGER(KIND=4), INTENT(INOUT) :: N5(NPT)
+              INTEGER(KIND=4), INTENT(INOUT) :: N6(NPT)
+              INTEGER(KIND=4), INTENT(INOUT) :: N7(NPT)
+            END SUBROUTINE FDENS
+          END INTERFACE 
+        END MODULE FDENS__genmod
