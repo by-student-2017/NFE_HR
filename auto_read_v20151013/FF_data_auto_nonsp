@@ -1,0 +1,30 @@
+#! /bin/csh -f
+
+  set file    = `pwd`
+  set file    = $file:t
+#  echo $file
+
+  if !( -d FF_DATA ) then
+    mkdir FF_DATA
+  endif
+  set filename = $file'_FF_date'
+  echo '---------------------------------------------' >> ./FF_DATA/$filename.txt
+  echo '    put ff data' >> ./FF_DATA/$filename.txt
+  date >> ./FF_DATA/$filename.txt
+  echo '---------------------------------------------' >> ./FF_DATA/$filename.txt
+  echo '  '
+  echo 'put FF input data in' $file '/FF_DATA/ directroy'
+  set filename = $file'_FF'
+  cp $file.outputt ./FF_DATA/wien_FF.outputt
+  cp $file.output1 ./FF_DATA/wien_FF.output1
+  cp $file.output2 ./FF_DATA/wien_FF.output2
+  cp $file.struct ./FF_DATA/wien_FF.struct
+  cp $file.dos1 ./FF_DATA/wien_FF.dos1
+  cp $file.klist_band ./FF_DATA/wien_FF.klist_band
+  cp $file.outputkgen ./FF_DATA/wien_FF.outputkgen
+  mkdir spaghetti_DATA
+  cp $file.spaghetti_ps ./spaghetti_DATA/$file.spaghetti_ps
+  cp $file.spaghetti_ene ./spaghetti_DATA/$file.spaghetti_ene
+  echo '  '
+endif
+#

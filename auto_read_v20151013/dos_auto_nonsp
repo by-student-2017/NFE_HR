@@ -1,0 +1,40 @@
+#! /bin/csh -f
+
+  set file    = `pwd`
+  set file    = $file:t
+#  echo $file
+
+  if !( -d DOS_DATA ) then
+    mkdir DOS_DATA
+  endif
+  set filename = $file'_DOS_date'
+  echo '---------------------------------------------' >> ./DOS_DATA/$filename.txt
+  echo '    put dos data' >> ./DOS_DATA/$filename.txt
+  date >> ./DOS_DATA/$filename.txt
+  echo '---------------------------------------------' >> ./DOS_DATA/$filename.txt
+  echo '  '
+  echo 'put dos input data in' $file '/DOS_DATA/ directroy'
+  set filename = $file'_DOS'
+  cp $file.dos1 ./DOS_DATA/$filename.dos1
+  cp $file.dos1ev ./DOS_DATA/$filename.dos1ev
+  cp $file.outputt ./DOS_DATA/$filename.outputt
+  cp $file.int ./DOS_DATA/$filename.int
+  cp $file.struct ./DOS_DATA/$filename.struct
+  if ( -e $file.dos2 ) then
+    cp $file.dos2 ./DOS_DATA/$filename.dos2
+    cp $file.dos2ev ./DOS_DATA/$filename.dos2ev
+  endif
+  if ( -e $file.dos3 ) then
+    cp $file.dos3 ./DOS_DATA/$filename.dos3
+    cp $file.dos3ev ./DOS_DATA/$filename.dos3ev
+  endif
+  if ( -e $file.dos4 ) then
+    cp $file.dos4 ./DOS_DATA/$filename.dos4
+    cp $file.dos4ev ./DOS_DATA/$filename.dos4ev
+  endif
+  if ( -e $file.dos5 ) then
+    cp $file.dos5 ./DOS_DATA/$filename.dos5
+    cp $file.dos5ev ./DOS_DATA/$filename.dos5ev
+  endif
+  echo '  '
+#
