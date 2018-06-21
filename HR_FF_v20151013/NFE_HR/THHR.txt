@@ -1,0 +1,138 @@
+H.SatoTHHRプログラム
+
+LMO:
+MXX,MAX:
+
+LMAX: 各k点とエネルギーにおいて、C^2が大きいものから何番目まで読み込むかの数。
+EB: DEを決めるために用いる。後に読み込んだデータから最初の最低のエネルギー(Ry)が格納される。
+EF: DEを決めるための入力値。
+NE: 分割数
+NEMAX: NEと同じ。
+DE: 分割するエネルギー (eV)
+LAT: 使われていない。
+NB1: 計算に用いるバンドの開始番号
+NB2: 使われていない。
+NPX,NPY, NPZ： それぞれh,k,l方向でのテトラへドロン法での分割数。
+NP: 分割したメッシュに付けられた番号。
+
+CALL TGEN：outputkgenの形式にあわせてNPZ, NPY, NPXと変えていき,
+　それに番号を順番につける。そして、N1(NP)-N7(NP)までの七つの分類に分けて整理しなおす。
+  体積Vが計算される。[
+
+IEX(I):NPXで分割したメッシュ点に対応するklist記載されている規約表現上の番号。
+IAB: バンドに付けられた番号
+ES、AMA1：バンドのエネルギー(eV)
+I：IABが前後で5以上の差があるのを確認してk点の番号とする。
+J：k点におけるバンドの数。常に最小のバンド数が格納されるようになっている。
+AKKK, BB1-30, TF1, F2：K^2
+AFFF, CC1-30: C^2
+EB: 読み込んだデータから最初の最低のエネルギー(Ry)が読み込まれる。
+AAA: 分割するエネルギーを単位とした場合のEBの小数点部分。
+EB: (1+小数点部分）をRy単位に戻して、EB(Ry)から引いた値。
+NPO: 規約表現上のk点数
+TEN: エネルギー*K^2
+TFF: (K^2)^2
+F2: K^2が12よりも小さくて、エネルギーが30 Ryよりも多い場合は0.0
+ その他、幾つかの条件でF2=0.0となる。
+AD: 異なるK^2の差の絶対値
+TEN, TE1, TFFはK^2の差(AD)が0.01だと纏められる。
+L: 実質的に1であり、意味は無い。
+BKKK: 全体の中で最小のバンド数の時にK^2が格納される。最後に纏められたものが格納される。昇順にソートされる。
+BFFF: 全体の中で最小のバンド数の時にC^2が格納される。最後に纏められたものが格納される。昇順にソートされる。
+AMA2: 全体の中で最小のバンド数の時にエネルギー(eV)が格納される。最後に纏められたものが格納される。昇順にソートされる。
+PR: BFFF と同じ。C^2が格納される。PRが0.2より多いときAKK2.DATAに表示される。
+WV: BKKK と同じ。K^2が格納される。
+EOA:
+ENE: AMA2と同じ。PRが0.2より多いときAKK2.DATAに表示される。
+I2: NPX, NPY, NPZで分割したメッシュの番号NPに対応するklistにある規約表現上の番号(IEX).
+AMA: NPT（NPX, NPY, NPZで分割した総メッシュ数）に対応させたklistでの番号に対するエネルギー(eV)　(AMA2)。
+AKK: NPT（NPX, NPY, NPZで分割した総メッシュ数）に対応させたklistでの番号に対するC^2　(BFFF)。
+AKKB: NPT（NPX, NPY, NPZで分割した総メッシュ数）に対応させたklistでの番号に対するK^2　(BKKK)。
+E: エネルギー(無次元)
+FK: C^2 (AKK)
+FKB: K^2 (AKKB)
+FKC: (K^2)^2 (FKB^2)
+EM: エネルギー位置
+
+CALL FDENS: 各エネルギーに対して呼び出される。(SUM OVER ALL TETRAHEDRA)
+ FDENS NPX=15 で定義されている。FDENS(NPXD) と定義して書き換えた。
+ キュービックを6つの四面体に分割してNPに対してDENSで計算する。
+
+CALL DENS: 最小のテトラへドロンを計算するルーチン
+ SORTを呼び出した後に行われる。
+
+S: エネルギー
+F: C^2
+FB: K^2
+FC: (K^2)^2
+CALL SORT: 4つあるSを昇順に並べた基準でデータが揃えられる。
+NE1: エネルギー差分(S(1)-EM(1))/DE。もし、EBよりもS(1)が小さければNE1=-1
+V: 四面体の体積
+DELTA: 式(C-9)の成分
+D1: 式(C-9)の成分
+D2: 式(C-9)の成分
+D4:
+AM: テキスト中のMに該当する。
+V1: V/DELTA
+DEE: E-S(1 or 2 or 3 or 4)
+FRAC:
+SN:
+CN: よくテキスト見かける式（ΔS/|∇E|）を計算する。式(C-9)の式
+SSS: F(E)。規格化因子のGEEは手作業で入力。
+DF:
+DF1:
+DF2:
+CN:
+CN1:
+CN2:
+FN:C^2に（ΔS/|∇E|）を掛ける。
+FNB:K^2に（ΔS/|∇E|）を掛ける。Kcgを計算。
+FND:(K^2)^2に（ΔS/|∇E|）を掛ける。
+SNT:SNの総和。CNT(つまり、DOS) をバンドの底からEまで積分した状態数。
+CNT,CC:CNの総和。よくテキスト見かける式Σ（ΔS/|∇E|）を計算する。DOSが得られる。CCが0以下のときは割られる方は0にする。
+FNT,C2:FNの総和
+FNTB,C2B:FNBの総和
+FNTC,C2C:FNCの総和
+FNTD,C2D:FNDの総和
+GEE:(2kF)^2。手作業で入力。
+TNE: トータルの電子数。
+ML: 単位胞中の規約表現上の原子数？
+エネルギーが0.0の場合は別に計算する（線形挿入している。0よりも負側を基点とするため、WRは正となるように-
+EMとしている）。
+公式そのままでは分母がゼロで発散するので、それを避ける工夫をしている。
+EE: エネルギー
+CPP,CFC,CCC: K^2
+CPP1,CFC1,CCC1: EOA
+CP,CF: C^2
+
+下記のルーチンが問題であったことが判明。
+            !if( (AKKK(LL,I,JJ)<=12) .and. (AMA1(I,JJ)>30) ) F2=0.0
+            !if( (AKKK(LL,I,JJ)>12)  .and. (AMA1(I,JJ)>(30+(AKKK(LL,I,JJ)-12)*2.5)) ) F2=0.0
+            !if( (LL==1) .and. (JJ==J) ) F2=0.0
+            !AD=abs( AKKK(LL,I,JJ)-AKKK(1,I,J) )
+            !if( (AD<0.00001) .and. (AFFF(LL,I,JJ)>0.0) ) then
+            !  TEN =TEN + AMA1(I,JJ)*F2
+            !  TF1 =TF1 + F2
+            !  TFF =TFF + F2**(2.d0)
+            !end if
+C^2が発散する以外は倍率の問題だけになった。K^2は良い一致。
+C^2の発散は下記のルーチンが問題であったことが判明。
+              !BFFF(I,J) = TFF/TF1
+              !AMA2(I,J) = TEN/TF1
+P1構造以外の空間群のデータを用いると5 eV 以上でK^2の値がおかしい。
+下記のルーチンが問題であったことが判明。
+! calculate squared G ( G = G + K )
+        WVX=BXX/normG1*( float( wave_num(1) ) + miller_index_h ) * (2 * axis_n / axis_a) &
+           +BXY/normG2*( float( wave_num(2) ) + miller_index_k ) * (2 * axis_n / axis_b) &
+           +BXZ/normG3*( float( wave_num(3) ) + miller_index_l ) * (2 * axis_n / axis_c)
+        !
+        WVY=BYX/normG1*( float( wave_num(1) ) + miller_index_h ) * (2 * axis_n / axis_a) &
+           +BYY/normG2*( float( wave_num(2) ) + miller_index_k ) * (2 * axis_n / axis_b) &
+           +BYZ/normG3*( float( wave_num(3) ) + miller_index_l ) * (2 * axis_n / axis_c)
+        !
+        WVZ=BZX/normG1*( float( wave_num(1) ) + miller_index_h ) * (2 * axis_n / axis_a) &
+           +BZY/normG2*( float( wave_num(2) ) + miller_index_k ) * (2 * axis_n / axis_b) &
+           +BZZ/normG3*( float( wave_num(3) ) + miller_index_l ) * (2 * axis_n / axis_c)
+        !
+        wave_K2(ff_count) = WVX**2 + WVY**2 + WVZ**2
+単斜晶まで可能な用にしてみた。Fm3mは正常動作。他の構造も比較することが必要。

@@ -1,0 +1,126 @@
+#! /bin/sh
+#-----------------------------------------------------
+Adress=$HOME/HR_FF/NFE_HR
+#-----------------------------------------------------
+echo "Start"
+date
+#-----------------------------------------------------
+mv *.klist f03
+mv *.output1 f26
+mv *.output2 f15
+mv *.outputkgen f17
+mv *.struct f60
+mv *.ff_scale_factor f55
+mv upper_range_eV f66
+#-----------------------------------------------------
+mkdir results
+cd results
+mkdir THHR
+cd ..
+#-----------------------------------------------------
+echo " "
+echo " "
+echo "Make ALL k point list for HR calculation"
+$Adress/makethhrklist
+#-----------------------------------------------------
+echo " "
+echo " "
+echo "Make input files for HR calculation"
+$Adress/makethhrinput
+#-----------------------------------------------------
+echo " "
+echo " "
+echo "Calculating TH-HR"
+mv LMAX f75
+$Adress/calcthhr
+mv AKK.DATA  ./results/THHR/TH_HR_DATA.txt
+mv AKK2.DATA ./results/THHR/C2_005_DATA.txt
+mv AKK3.DATA ./results/THHR/C2_020_DATA.txt
+mv AKK4.DATA ./results/THHR/C2_050_DATA.txt
+#-----------------------------------------------------
+echo " "
+echo " "
+echo "Calculating NFE-HR for L=1"
+#echo "LMAX=1" > LMAX
+$Adress/calcnfehr
+$Adress/calcff_from_hr
+cd results
+mkdir NFE_L1
+cd ..
+mv AKK5.DATA  ./results/NFE_L1/NFE_HR_L1_DATA.txt
+mv AKK6.DATA  ./results/NFE_L1/CG_005_L1_DATA.txt
+mv AKK7.DATA  ./results/NFE_L1/CG_020_L1_DATA.txt
+mv AKK8.DATA  ./results/NFE_L1/CG_050_L1_DATA.txt
+mv AKK9.DATA  ./results/NFE_L1/FF_C2_L1_DATA.txt
+mv AKK10.DATA ./results/NFE_L1/FF_C2_BG_L1_DATA.txt
+mv AKK9.txt   ./results/NFE_L1/FF_CG_L1_DATA.txt
+#-----------------------------------------------------
+#echo " "
+#echo " "
+#echo "Calculating NFE-HR for L=10"
+#echo "LMAX=10" > LMAX
+#mv LMAX f75
+#$Adress/calcnfehr
+#$Adress/calcff
+#cd results
+#mkdir NFE_L10
+#cd ..
+#mv AKK5.DATA ./results/NFE_L10/NFE_HR_L10_DATA.txt
+#mv AKK6.DATA ./results/NFE_L10/CG_005_L10_DATA.txt
+#mv AKK7.DATA ./results/NFE_L10/CG_020_L10_DATA.txt
+#mv AKK8.DATA ./results/NFE_L10/CG_050_L10_DATA.txt
+#mv AKK9.DATA  ./results/NFE_L10/FF_C2_L10_DATA.txt
+#mv AKK10.DATA ./results/NFE_L10/FF_C2_BG_L10_DATA.txt
+#mv AKK9.txt   ./results/NFE_L10/FF_CG_L10_DATA.txt
+
+#-----------------------------------------------------
+#echo " "
+#echo " "
+#echo "Calculating NFE-HR for L=20"
+#echo "LMAX=20" > LMAX
+#mv LMAX f75
+#$Adress/calcnfehr
+#$Adress/calcff
+#cd results
+#mkdir NFE_L20
+#cd ..
+#mv AKK5.DATA  ./results/NFE_L20/NFE_HR_L20_DATA.txt
+#mv AKK6.DATA  ./results/NFE_L20/CG_005_L20_DATA.txt
+#mv AKK7.DATA  ./results/NFE_L20/CG_020_L20_DATA.txt
+#mv AKK8.DATA  ./results/NFE_L20/CG_050_L20_DATA.txt
+#mv AKK9.DATA  ./results/NFE_L20/FF_C2_L20_DATA.txt
+#mv AKK10.DATA ./results/NFE_L20/FF_C2_BG_L20_DATA.txt
+#mv AKK9.txt   ./results/NFE_L20/FF_CG_L20_DATA.txt
+#-----------------------------------------------------
+
+mv f03 wien.klist
+mv f26 wien.output1
+mv f15 wien.output2
+mv f17 wien.outputkgen
+mv f60 wien.struct
+cp f75 LMAX
+mv f55 wien.ff_scale_factor
+#
+rm f01
+#rm f13
+#rm f14
+#rm f16
+#
+#-----------------------------------------------------
+cp ./results/THHR/TH_HR_DATA.txt       ./results/THHR/TH_HR_gnuplot.DATA
+cp ./results/THHR/C2_020_DATA.txt      ./results/THHR/C2_020_gnuplot.DATA
+cp ./results/NFE_L1/NFE_HR_L1_DATA.txt ./results/NFE_L1/NFE_HR_L1_gnuplot.DATA
+cp ./results/NFE_L1/CG_020_L1_DATA.txt ./results/NFE_L1/CG_020_L1_gnuplot.DATA
+sed -i -e "1d" ./results/THHR/TH_HR_gnuplot.DATA
+sed -i -e "1d" ./results/THHR/C2_020_gnuplot.DATA
+sed -i -e "1d" ./results/NFE_L1/NFE_HR_L1_gnuplot.DATA
+sed -i -e "1d" ./results/NFE_L1/CG_020_L1_gnuplot.DATA
+$Adress/hrplot
+$Adress/cplot
+rm ./results/THHR/TH_HR_gnuplot.DATA
+rm ./results/THHR/C2_020_gnuplot.DATA
+rm ./results/NFE_L1/NFE_HR_L1_gnuplot.DATA
+rm ./results/NFE_L1/CG_020_L1_gnuplot.DATA
+#-----------------------------------------------------
+echo "END"
+date
