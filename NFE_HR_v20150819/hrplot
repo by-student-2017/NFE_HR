@@ -1,0 +1,74 @@
+#!/bin/csh -f
+
+set file     = `pwd`
+set filename = $file:h
+set filename = $filename:t
+set psformat = "_THHR.ps"
+set epsformat = "_THHR.eps"
+#
+grep "NATO=" $file/f70 > NATOM.txt
+cut -c 6-10 NATOM.txt > TNATOM.txt
+set N = `cat TNATOM.txt`
+#
+grep "^   0.00000" $file/results/NFE_L1/NFE_HR_L1_DATA.txt > EOA.txt
+cut -c 12-21 EOA.txt > 2KF.txt
+set KFU = `cat 2KF.txt`
+set KF = `echo "scale=2; $KFU/1.0" | bc`
+cut -c 23-32 EOA.txt > EOA0.txt
+set EOA0U = `cat EOA0.txt`
+set EOA0 = `echo "scale=2; $EOA0U/1.0" | bc`
+#
+set EOA = "(e/a)_N_F_E = {/Symbol p}{[(2K_F)^2}]^3^/^2/3N"
+set N1EOA = "= {/Symbol p}{[($KF)^2}]^3^/^2/(3*$N)"
+set N2EOA = "= $EOA0"
+#
+rm NATOM.txt
+rm TNATOM.txt
+rm EOA.txt
+rm EOA0.txt
+rm 2KF.txt
+
+gnuplot -persist << EOF
+
+set title "$filename L=1"
+set size 0.7,1.0
+set xr[*:30.0]
+set xl "{/=30 Energy [eV] }"
+set yr[0.0:*]
+set yl "{/=30 <{|2(k+G)|}^2>[x(2{/Symbol p}/V^{1/3})^2] }"
+
+set y2tics
+set logscale y2
+set y2r[0.001:100]
+set y2l "{/=30 F(E_F) }"
+
+set yzeroaxis lt 1 lw 2 lc rgb "black"
+
+# linetype=lt, linecolor=lc, linewidth=lw, pointtype=pt, pointsize=ps
+# with=w, line=l, color setting=lc rgb "", 
+set key box center top
+plot "$file/results/THHR/TH_HR_gnuplot.DATA" using 1:2 w l lt 1 lw 2 lc rgb "grey" title "TH-HR curve"
+replot "$file/results/THHR/TH_HR_gnuplot.DATA" using 1:5 w l lt 1 lw 2 lc rgb "pink" title "F(E_F)" axes x1y2
+replot "$file/results/THHR/C2_020_gnuplot.DATA" w p pt 7 ps 1 lc rgb "green" title " {/Symbol S}|C|^2 >= 0.2" 
+replot "$file/results/NFE_L1/CG_020_L1_gnuplot.DATA" w p pt 7 ps 1 lc rgb "magenta" title " {/Symbol S}|C^c^g|^2 >= 0.2"
+replot "$file/results/NFE_L1/NFE_HR_L1_gnuplot.DATA" using 1:2 w l lt 1 lw 2 lc rgb "black" title " NFE-HR curve"
+
+set label 1 left at first 4, graph 0.15 "$EOA"
+set label 2 left at first 4, graph 0.10 "$N1EOA"
+set label 3 left at first 4, graph 0.05 "$N2EOA"
+replot
+
+#set size 1.0,1.0
+#set terminal postscript color enhanced "Arial" 30
+#set out "$filename$psformat"
+#replot
+
+set size 1.5,2.1
+set terminal postscript eps color enhanced "Arial" 30
+set out "$filename$epsformat"
+replot
+
+set terminal x11
+
+EOF
+
